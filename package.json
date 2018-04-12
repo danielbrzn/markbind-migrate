@@ -1,0 +1,10 @@
+{
+  "name": "markbind-migrate",
+  "version": "1.0.0",
+  "description": "Tool to migrate old MB sites",
+  "main": "index.js",
+  "dependencies": {
+    "fs-extra-promise": "^1.0.1",
+    "prepend": "^1.0.2"
+  }
+}
