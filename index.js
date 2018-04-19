@@ -40,13 +40,12 @@ title: "${page.title.replace(prefixToRemove, '')}"
 
   // get addressable array
   const candidates = pages.map(page => page.src).map(src => src.split("/")).map(arr => arr[arr.length-1]);
-    sitejson.addressable = (Array.from(new Set (candidates)).map(e => '**/' + e));
+    sitejson.pages = (Array.from(new Set (candidates)).map(e => ({ glob: '**/' + e })));
 
     sitejson.titlePrefix = prefix;
-    // remove pages array
-    delete sitejson.pages; 
     fs.writeJsonSync(path.resolve(sitePath, sitejsonpath), sitejson);
     rl.close();
 });
 };
 
++
