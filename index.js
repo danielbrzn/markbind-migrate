@@ -20,7 +20,6 @@ const migrate = function(sitePath) {
   rl.question('Please input the prefix of the site: ', (prefix) => {
     let sitejson = fs.readJsonSync(path.resolve(sitePath, sitejsonpath))
     let prefixToRemove = new RegExp(prefix + ' - ');
-    console.log(prefixToRemove);
     const pages = sitejson.pages
     
   // prepend each page with FM data
@@ -44,8 +43,7 @@ title: "${page.title.replace(prefixToRemove, '')}"
 
     sitejson.titlePrefix = prefix;
     fs.writeJsonSync(path.resolve(sitePath, sitejsonpath), sitejson);
+    console.log('Site successfully migrated!');
     rl.close();
 });
 };
-
-+
